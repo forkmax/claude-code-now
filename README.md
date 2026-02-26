@@ -2,11 +2,9 @@
 
 **Launch Claude Code in 3 seconds, save 5 minutes daily** ⚡
 
-**English** | [中文](README.zh.md) | [日本語](README.ja.md)
+**English** | [中文](README.zh.md)
 
 > "Finally, no more typing commands in terminal every time!"
-> 
-> ⭐ **Chosen by 5,000+ users** | [GitHub Stars](https://github.com/orange2ai/claude-code-now)
 
 ---
 
@@ -28,184 +26,116 @@ Click icon → Start working instantly → ✨
 | Time needed | ~35s | ~3s |
 | Steps required | 5-6 steps | 1 step |
 
-**Launch 10 times daily = Save 5 minutes = 30 hours saved yearly** 🎉
+---
+
+## 📦 Available Versions
+
+This fork provides two dedicated versions in addition to the auto-detect version:
+
+| Version | Description | Download |
+|---------|-------------|----------|
+| **Claude Code Now Terminal** | Always launches in macOS Terminal.app | [Download](./Claude.Code.Now.Terminal.v1.6.4.macOS.zip) |
+| **Claude Code Now iTerm2** | Always launches in iTerm2 | [Download](./Claude.Code.Now.iTerm2.v1.6.4.macOS.zip) |
+
+### Why Dedicated Versions?
+
+The original auto-detect version cannot truly detect your system's default terminal. It only:
+1. Checks which terminal apps are installed
+2. Uses a hardcoded priority (iTerm > Warp > Alacritty > Terminal)
+3. Saves the first detected terminal to a config file — never re-checks
+
+**Solution:** Use the dedicated version that matches your preferred terminal.
 
 ---
 
-## 🌟 Why It's Special
-
-### 💡 The Power of Context
-
-Claude Code has different "superpowers" in different folders:
-
-- 📊 **Research folder** → Data analysis expert
-- 💻 **Project folder** → Code writing assistant  
-- 📝 **Documents folder** → Document processing expert
-
-**Launch in the right place = Claude Code gets smarter!**
-
-### ⚡ Core Features
+## 🚀 Features
 
 - **🚀 3-Second Launch** - Click and go, no waiting
 - **📁 Smart Folder Launch** - Works where you are
-- **🔒 Zero Configuration** - No setup needed
-- **⚙️ Permission Auto-Skip** - No annoying confirmations
+- **💾 Remembers Last Location** - Starts where you left off
+- **🔧 Permission Mode Fix** - Uses `acceptEdits` instead of `bypass` for full skill access
+
+### 🔧 Key Fix in This Fork
+
+The original version used `--permission-mode bypass` which restricts access to user-installed Claude skills. This fork changes it to `--permission-mode acceptEdits`, allowing full access to all your installed skills.
 
 ---
 
-## ⏱️ Install in 30 Seconds
+## 📥 Installation
 
-### 🔥 Step 1: Click to Download
+### Option 1: Download Pre-built Apps
 
-[📥 **Download v1.6.2 Now**](https://github.com/orange2ai/claude-code-now/releases/download/v1.6.2/Claude.Code.Now.v1.6.2.macOS.zip)
+1. Download the desired version:
+   - [Claude Code Now Terminal](./Claude.Code.Now.Terminal.v1.6.4.macOS.zip)
+   - [Claude Code Now iTerm2](./Claude.Code.Now.iTerm2.v1.6.4.macOS.zip)
 
-**File size**: 1.0MB | **Download time**: ~3 seconds
+2. Unzip the file
 
----
+3. Move the `.app` to `/Applications`:
+   ```bash
+   mv "Claude Code Now Terminal.app" /Applications/
+   ```
 
-### 👆 Step 2: Drag to Install
+4. (Optional) Drag to Dock for quick access
 
-1. Double-click `Claude.Code.Now.v1.6.2.macOS.zip` to extract
-2. Drag `Claude Code Now.app` to your `Applications` folder
-
-```
-📁 Downloads          →        📁 Applications
-Claude Code Now.app   →         (drag here)
-```
-
----
-
-### ▶️ Step 3: Start Using
-
-**Launch from Dock:**
-```
-Applications → Claude Code Now.app → Drag to Dock → Click to launch
-```
-
-**Launch from Finder Toolbar (Recommended):**
-```
-Hold Command ⌘ → Drag app to Finder toolbar → Click to launch in any folder
-```
-
-**🎉 Done! Enjoy 3-second launches!**
-
----
-
-## 📸 How to Use
-
-### 📱 Dock Launch
-Click the Dock icon, automatically launches in `Documents/Claude Code` folder
-
-### ⚡ Finder Toolbar Launch  
-Click the toolbar icon in any folder, launches directly in that folder
-
-### 🚀 Zero Configuration
-No setup needed, works out of the box, auto-skips permission prompts
-
----
-
-## ❓ Frequently Asked Questions
-
-**Q: Is it safe? Will it break my computer?**
-- ✅ Completely safe! It's just a launcher, doesn't modify system files
-- ✅ Open source code, review it yourself [View Source](https://github.com/orange2ai/claude-code-now)
-- ✅ Trusted by 5,000+ users
-
-**Q: What do I need to install first?**
-- Yes, you need [Claude Code official CLI](https://docs.claude.com/en/docs/claude-code) installed first
-- This is the official tool, install once and you're set
-
-**Q: Does it support Windows?**
-- Yes! Check out [Windows Installation Guide](#windows-installation)
-
-**Q: Can I uninstall if I don't like it?**
-- Of course! Just drag the app to trash
-- Leaves no leftover files
-
-**Q: Is it free?**
-- Completely free and open source, use forever
-
----
-
-## 🪟 Windows Installation
-
-```batch
-# 1. Install Claude Code CLI first
-npm install -g @anthropic-ai/claude-code
-
-# 2. Download Windows installation scripts
-# Visit: https://github.com/orange2ai/claude-code-now/tree/main/windows
-```
-
----
-
-## 🛠️ Advanced Users
-
-### Command Line Installation
+### Option 2: Build from Source
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/orange2ai/claude-code-now/main/install.sh | bash
-```
+# Clone this repository
+git clone https://github.com/forkmax/claude-code-now.git
+cd claude-code-now
 
-### Custom Working Directory
-
-By default launches in `Documents/Claude Code`, to change:
-
-```bash
-# Edit launcher script, modify WORK_DIR variable
-open "Claude Code Now.app/Contents/MacOS/ClaudeCodeLauncher"
+# Create the app bundle (manual steps required)
+# See source/ directory for the launcher script
 ```
 
 ---
 
-## 🏆 Product Philosophy
+## ❓ Usage
 
-**Simple** - Focus on one function, do it perfectly  
-**Focused** - Just a launcher, nothing else  
-**Ultimate** - 3-second launch, fastest in industry
-
----
-
-## 👨‍💼 About Author
-
-Made by **Orange**, CEO of [ListenHub.AI](https://listenhub.ai)
-
-> "I believe the best products are those where you don't feel the complexity."
+1. **Click the app icon** in Dock or Applications
+2. **Or right-click a folder** → "Open With" → Choose the app
+3. Claude Code launches instantly in your chosen terminal
 
 ---
 
-## 🌟 User Reviews
+## 🔧 Configuration
 
-⭐⭐⭐⭐⭐ **"So simple! Why didn't someone make this sooner?"**
+### Terminal Preference
 
-⭐⭐⭐⭐⭐ **"The 5 minutes I save daily, I use to grab a coffee"**
+The dedicated versions force their respective terminals:
+- **Terminal version** → Always uses Terminal.app
+- **iTerm2 version** → Always uses iTerm2
 
-⭐⭐⭐⭐⭐ **"Finally no need to memorize commands, super beginner-friendly"**
-
----
-
-## 🔗 Related Links
-
-- **[💬 Submit Feedback](https://github.com/orange2ai/claude-code-now/issues)** - Having issues? Tell us
-- **[📖 Full Documentation](https://github.com/orange2ai/claude-code-now/wiki)** - Detailed usage guide
-- **[🎧 ListenHub.AI](https://listenhub.ai)** - Author's other projects
+No configuration needed!
 
 ---
 
-## ⚡ Get Started Now
+## 📝 Changelog
 
-[🔥 **Click Here to Download v1.6.2**](https://github.com/orange2ai/claude-code-now/releases/download/v1.6.2/Claude.Code.Now.v1.6.2.macOS.zip)
+See [CHANGELOG.md](./CHANGELOG.md) for full version history.
 
-**30-second install, 3-second launch, save 5 minutes daily** 🚀
+### v1.6.4 (This Fork)
+- ✅ Changed `--permission-mode` from `bypass` to `acceptEdits` for full skill access
+- ✅ Added dedicated Terminal version app
+- ✅ Added dedicated iTerm2 version app
+- ✅ Fixed terminal selection logic issues
 
 ---
 
-<div align="center">
+## 🤝 Contributing
 
-**If this tool helped you, please give it a Star⭐**
+Contributions welcome! Please open an issue or PR.
 
-[![GitHub stars](https://img.shields.io/github/stars/orange2ai/claude-code-now?style=social)](https://github.com/orange2ai/claude-code-now/stargazers)
+---
 
-Made with ❤️ by [Orange](https://listenhub.ai)
+## � License
 
-</div>
+MIT License - See [LICENSE](./LICENSE)
+
+---
+
+## ⭐ Acknowledgments
+
+- Original project: [orange2ai/claude-code-now](https://github.com/orange2ai/claude-code-now)
+- Thanks to all contributors!
