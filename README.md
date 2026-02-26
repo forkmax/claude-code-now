@@ -129,9 +129,9 @@ Contributions welcome! Please open an issue or PR.
 
 ---
 
-## � License
+## 📄 License
 
-MIT License - See [LICENSE](./LICENSE)
+MIT License
 
 ---
 
